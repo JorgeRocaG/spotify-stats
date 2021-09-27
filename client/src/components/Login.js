@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const SCOPES = "user-read-private user-read-email user-top-read";
@@ -16,13 +15,14 @@ const AUTH_URL =
 
 export default function Login() {
   return (
-    <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <a className="btn btn-success btn-large" href={AUTH_URL}>
-        Login with Spotify
+    <div className="h-screen flex flex-col justify-center items-center">
+      <h1 className="text-5xl font-bold mb-4">Welcome to Spotify Stats</h1>
+      <a
+        className="border-4 border-black rounded-full p-4 bg-green-400 hover:bg-green-500 transition duration-500 ease-in-out font-bold"
+        href={AUTH_URL}
+      >
+        login with spotify
       </a>
-    </Container>
+    </div>
   );
 }
