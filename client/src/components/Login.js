@@ -2,7 +2,7 @@ import React from "react";
 
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const SCOPES = "user-read-private user-read-email user-top-read";
-const REDIRECT_URL = "http://localhost:3000";
+const REDIRECT_URL = process.env.REACT_APP_REDIRECT_URL;
 
 const AUTH_URL =
   "https://accounts.spotify.com/authorize" +
