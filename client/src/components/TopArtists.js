@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+import ArtistCard from "./ArtistCard";
+
 const H2 = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
@@ -54,13 +56,8 @@ export default function TopArtists({ accessToken }) {
 
   if (!artists) return <h2>Error getting most listened artists</h2>;
 
-  console.log(artists);
   const artistsListItems = artists.map((el) => (
-    <div className="card col-4">
-      <img src={el.images[0].url} alt={el.name} />
-      <p>{el.name}</p>
-    </div>
-
+    <ArtistCard imgUrl={el.images[0].url} name={el.name} />
   ));
 
   return (
