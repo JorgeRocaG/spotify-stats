@@ -60,43 +60,7 @@ export default function TopArtists({ accessToken }) {
       <img src={el.images[0].url} alt={el.name} />
       <p>{el.name}</p>
     </div>
-  ));
 
-  let allGenres = [];
-
-  artists.forEach((artist) => {
-    artist.genres.forEach((genre) => {
-      if (allGenres.length === 0) {
-        allGenres.push({
-          genreKey: genre,
-          times: 1,
-        });
-      } else {
-        let foundIndex = allGenres.findIndex((x) => x.genreKey === genre);
-        if (foundIndex === -1) {
-          allGenres.push({
-            genreKey: genre,
-            times: 1,
-          });
-        } else {
-          allGenres[foundIndex].times++;
-        }
-      }
-    });
-  });
-
-  allGenres
-    .sort((a, b) => {
-      return a.times - b.times;
-    })
-    .reverse();
-
-  console.log(allGenres);
-
-  const genresListItems = allGenres.map((el) => (
-    <li>
-      {el.genreKey}: {el.times}
-    </li>
   ));
 
   return (
